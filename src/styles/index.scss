@@ -31,3 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+
+input {
+  @apply bg-[#000] text-[#fff]
+  text-xs
+  w-4;
+}
