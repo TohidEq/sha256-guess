@@ -32,8 +32,25 @@ body {
   }
 }
 
-input {
-  @apply bg-[#000] text-[#fff]
-  text-xs
-  w-4;
+.App {
+  @apply max-w-[340px] md:max-w-[660px] mx-auto px-2 py-2;
+}
+
+.inputs {
+  @apply flex flex-wrap justify-start xl:justify-center;
+  input {
+    @apply text-center font-mono mx-0 my-0 p-0 rounded
+    focus-visible:outline-none
+    focus-visible:bg-white/10;
+  }
+}
+.myinput {
+  @apply bg-[#000] text-[#fff] 
+  text-base w-5;
+}
+.btns {
+  @apply flex justify-center;
+  .btn {
+    @apply bg-white text-black;
+  }
 }

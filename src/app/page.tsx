@@ -27,6 +27,7 @@ export default function Home() {
     const input = (
       <input
         key={i}
+        className="myinput"
         type="text"
         maxLength={1}
         onKeyUp={changeControll}
@@ -41,8 +42,12 @@ export default function Home() {
   return (
     <main className="Home">
       <form action="" ref={myRef}>
-        {allInputs.map((input) => input)}
-        <button type="submit">check</button>
+        <div className="inputs">{allInputs.map((input) => input)}</div>
+        <div className="btns">
+          <button type="submit" className="btn">
+            check
+          </button>
+        </div>
       </form>
     </main>
   );
