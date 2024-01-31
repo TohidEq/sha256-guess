@@ -1,12 +1,17 @@
 "use client";
 
+import CheckGuess from "@/components/CheckGuess";
 import generateRandomSha256 from "@/lib/generateRandomSha256";
 import { useRef, useState } from "react";
 
 export default function Home() {
-  const randomSha256 = generateRandomSha256();
-  const [guess, setGuess] = useState<any>({ "1": 123 });
-  const myRef = useRef<any>();
+  const [randomSha256, setRandomSha256] = useState<string>(
+    generateRandomSha256()
+  );
+  const [guess, setGuess] = useState<{
+    [key: number]: string;
+  }>({});
+
   console.log(randomSha256);
 
   const changeControll = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -21,7 +26,7 @@ export default function Home() {
     }
   };
 
-  const allInputs = [];
+  const allInputs: JSX.Element[] = [];
 
   for (let i = 0; i < 64; i++) {
     const input = (
@@ -39,16 +44,34 @@ export default function Home() {
     allInputs[i] = input;
   }
 
+  const [guessCounter, setGuessCounter] = useState(0);
+  const [checkGuessResults, setCheckGuessResults] = useState<JSX.Element[]>([]);
+  // type form yadam nare :D =  React.SyntheticEvent<HTMLFormElement> #note
+  const submitHandler = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    console.log("submit func");
+
+    e.preventDefault();
+    checkGuessResults[guessCounter] = (
+      <CheckGuess guess={guess} sha256={randomSha256} key={guessCounter} />
+    );
+    console.log(checkGuessResults);
+
+    setGuessCounter(guessCounter + 1);
+  };
+
   return (
     <main className="Home">
-      <form action="" ref={myRef}>
+      <form action="" onSubmit={submitHandler}>
         <div className="inputs">{allInputs.map((input) => input)}</div>
         <div className="btns">
           <button type="submit" className="btn">
-            check
+            🔎
           </button>
         </div>
       </form>
+      <div className="check-guess">
+        {checkGuessResults.toReversed().map((item) => item)}
+      </div>
     </main>
   );
 }
