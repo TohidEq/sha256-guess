@@ -43,15 +43,15 @@ body {
 .chars {
   @apply flex flex-wrap justify-start xl:justify-center;
   .char {
-    @apply text-center mx-0 my-0 p-0 rounded;
+    @apply text-center mx-0 my-0 p-0 rounded  w-5;
     &.correct {
-      @apply text-green;
+      @apply text-green drop-shadow-glow-green;
     }
     &.incorrect {
       @apply text-grey/80;
     }
     &.incorrectPosition {
-      @apply text-yellow;
+      @apply text-yellow drop-shadow-glow-yellow;
     }
   }
 }
@@ -63,11 +63,15 @@ input {
 }
 .charInput {
   @apply bg-[#000] text-[#fff] 
-  text-base w-5;
+  text-base;
 }
 .btns {
   @apply flex justify-center;
   .btn {
     @apply text-white px-1 py-0.5;
   }
+}
+
+.guess {
+  @apply py-3;
 }

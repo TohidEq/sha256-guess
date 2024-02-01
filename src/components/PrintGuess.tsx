@@ -1,5 +1,5 @@
 import React from "react";
-
+import nextId from "react-id-generator";
 type Props = {
   guess: {
     [key: number]: {
@@ -9,6 +9,14 @@ type Props = {
   };
 };
 
-export default function PrintGuess({}: Props) {
-  return <div>PrintGuess</div>;
+export default function PrintGuess({ guess }: Props) {
+  return (
+    <div className="chars  flex flex-wrap">
+      {Object.values(guess).map((i) => (
+        <div key={nextId()} className={`char ${i.class}`}>
+          {i.char}
+        </div>
+      ))}
+    </div>
+  );
 }

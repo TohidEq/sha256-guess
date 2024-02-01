@@ -14,11 +14,10 @@ const config: Config = {
         grey: "#839AA8",
       },
       dropShadow: {
-        "glow-green": ["0px 0px 8px #38E54D"],
-        "glow-yellow": ["0px 0px 8px #F0FF42", "0px 0px 8px #F0FF42"],
-        "glow-green-1": ["0px 0px 9px #38E54D"],
-        "glow-green-2": ["0px 0px 9px #38E54D", "0px 0px 9px #38E54D"],
-        "glow-green-3": ["0px 0px 8px #38E54D", "0px 0px 8px #38E54D"],
+        "glow-greenx": ["0px 0px 8px #38E54D"],
+        "glow-grey": ["0px 0px 9px #839AA8", "0px 0px 9px #839AA8"],
+        "glow-yellow": ["0px 0px 9px #F0FF42", "0px 0px 9px #F0FF42"],
+        "glow-green": ["0px 0px 8px #38E54D", "0px 0px 8px #38E54D"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
