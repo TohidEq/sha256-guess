@@ -89,6 +89,10 @@ input {
   }
 }
 
-.guess {
-  @apply py-3;
+.check-guess {
+  @apply flex-col-reverse;
+
+  .guess {
+    @apply w-full py-3;
+  }
 }
