@@ -87,7 +87,7 @@ export default function Home() {
         </form>
 
         <div className="check-guess">
-          {checkGuessResults.toReversed().map((item) => item)}
+          {checkGuessResults.map((item) => item)}
         </div>
       </div>
     </main>
