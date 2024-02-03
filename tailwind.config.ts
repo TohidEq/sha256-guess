@@ -7,6 +7,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      Ubunto: ['"Ubuntu Mono"', "serif"],
+    },
     extend: {
       colors: {
         green: "#38E54D",
