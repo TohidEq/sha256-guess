@@ -3,7 +3,7 @@
 import CheckGuess from "@/components/CheckGuess";
 import generateRandomSha256 from "@/lib/generateRandomSha256";
 import getCharactersNumber from "@/lib/getCharactersNumber";
-import { env } from "process";
+import { BiDownArrow } from "react-icons/bi";
 import { useState } from "react";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
     console.log("changeControl func");
     const inputId = Number(e.currentTarget.id);
 
-    if (e.currentTarget.value && inputId < charsNumber) {
+    if (e.currentTarget.value && inputId < charsNumber - 1) {
       const nextInput = document.getElementById(
         (inputId + 1).toString()
       ) as HTMLInputElement;
@@ -36,23 +36,6 @@ export default function Home() {
       nextInput.select();
     }
   };
-
-  const allInputs: JSX.Element[] = [];
-  for (let i = 0; i < charsNumber; i++) {
-    const input = (
-      <input
-        key={i}
-        className="charInput char"
-        type="text"
-        maxLength={1}
-        onKeyUp={changeControl}
-        id={`${i}`}
-        placeholder={`${i % 2 ? "◦" : "•"}`}
-        required
-      />
-    );
-    allInputs[i] = input;
-  }
 
   const [guessCounter, setGuessCounter] = useState(0);
   const [checkGuessResults, setCheckGuessResults] = useState<JSX.Element[]>([]);
@@ -74,22 +57,38 @@ export default function Home() {
     console.log(checkGuessResults);
   };
 
+  // create all inputs
+  const allInputs: JSX.Element[] = [];
+  for (let i = 0; i < charsNumber; i++) {
+    const input = (
+      <input
+        key={i}
+        className="charInput char"
+        type="text"
+        maxLength={1}
+        onKeyUp={changeControl}
+        id={`${i}`}
+        placeholder={`${i % 2 ? "◦" : "•"}`}
+        required
+      />
+    );
+    allInputs[i] = input;
+  }
   return (
     <main className="Home">
-      <form action="" onSubmit={submitHandler} autoComplete="off">
-        <div className="chars">{allInputs.map((input) => input)}</div>
-        <div className="btns">
-          <input
-            type="submit"
-            value="🔎"
-            className="btn"
-            id={`${charsNumber}`}
-          />
-        </div>
-      </form>
+      <div className="game">
+        <form action="" onSubmit={submitHandler} autoComplete="off">
+          <div className="chars">{allInputs.map((input) => input)}</div>
+          <div className="btns">
+            <button type="submit" className="btn" id={`${charsNumber}`}>
+              <BiDownArrow />
+            </button>
+          </div>
+        </form>
 
-      <div className="check-guess">
-        {checkGuessResults.toReversed().map((item) => item)}
+        <div className="check-guess">
+          {checkGuessResults.toReversed().map((item) => item)}
+        </div>
       </div>
     </main>
   );
