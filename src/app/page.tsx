@@ -21,10 +21,10 @@ export default function Home() {
     return strGuess;
   };
 
-  console.log(randomString);
+  // console.log(randomString);
 
   const changeControl = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log("changeControl func");
+    // console.log("changeControl func");
     const inputId = Number(e.currentTarget.id);
 
     if (e.currentTarget.value && inputId < charsNumber - 1) {
@@ -42,7 +42,7 @@ export default function Home() {
   // type form yadam nare :D =  React.SyntheticEvent<HTMLFormElement> #note
   const submitHandler = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit func");
+    // console.log("submit func");
 
     let guess = getGuess();
     checkGuessResults[guessCounter] = (
@@ -54,7 +54,7 @@ export default function Home() {
     );
     setGuessCounter(guessCounter + 1);
 
-    console.log(checkGuessResults);
+    // console.log(checkGuessResults);
   };
 
   // create all inputs

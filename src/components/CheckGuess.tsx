@@ -27,7 +27,7 @@ export default function CheckGuess({ guess, randomString }: Props) {
     //     ? "incorrect"
     //     : "incorrectPosition",
     // };
-    console.log("index:", index, "guessChar:", guessChar);
+    // console.log("index:", index, "guessChar:", guessChar);
 
     if (guessChar === randomString[index]) {
       item[index] = {
